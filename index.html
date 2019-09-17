@@ -5,23 +5,32 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     </head>
     <body>
-        <p>Hello world!</p>
-        <select id="continent-select">
-            <option value="">Whole World</option>
-            <option value="North America">North America</option>
-            <option value="Europe">Europe</option>
-            <option value="South America">South America</option>
-            <option value="Asia">Asia</option>
-            <option value="Africa">Africa</option>
-        </select>
-        <button onclick="start()">Start game</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>Hello world!</h2>
+                    <div id="menu">
+                        <select class="form-control" id="continent-select">
+                            <option value="">Whole World</option>
+                            <option value="North America">North America</option>
+                            <option value="Europe">Europe</option>
+                            <option value="South America">South America</option>
+                            <option value="Asia">Asia</option>
+                            <option value="Africa">Africa</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="start()">Start game</button>
+                    </div>
+            
+                    <div id="question"></div>
+                    <div id="alternatives"></div>
+                    <div id="correct-answers"></div>
 
-        <div id="question"></div>
-        <div id="alternatives"></div>
-        <div id="correct-answers"></div>
+                </div>
+            </div>
+        </div>
 
         <script src="./js/countries-by-capital.js"></script>
         <script src="./js/countries-by-continent.js"></script>

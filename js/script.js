@@ -8,6 +8,7 @@ let res = countriesByCapital.map(x =>
 
 function start() {
   resetState();
+  document.getElementById("menu").className = "d-none";
   let continent = document.getElementById("continent-select").value;
 
   if (continent.length > 0) {
@@ -28,7 +29,10 @@ function resetState() {
 
 function nextQuestion() {
   document.getElementById("question").innerHTML =
-    questionNum + ". What's the capital in " + countries[questionNum].country;
+    questionNum +
+    1 +
+    ". What's the capital in " +
+    countries[questionNum].country;
   getAlternatives();
 }
 
@@ -52,7 +56,7 @@ function getAlternatives() {
   let html = "";
   alternatives.forEach(alternative => {
     html +=
-      "<button onclick=\"checkAnswer('" +
+      "<button class=\"btn btn-secondary w-50\" onclick=\"checkAnswer('" +
       alternative +
       "')\">" +
       alternative +
