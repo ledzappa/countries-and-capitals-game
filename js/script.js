@@ -1,4 +1,4 @@
-let countries, questionNum, correctAnswers;
+let countries, questionNum, correctAnswers, answers;
 
 let res = countriesByCapital.map(x =>
   Object.assign(x, {
@@ -9,22 +9,17 @@ let res = countriesByCapital.map(x =>
 function start() {
   resetState();
   document.getElementById("menu").className = "d-none";
+  document.getElementById("game-view").className = "d-block";
   let continent = document.getElementById("continent-select").value;
 
   if (continent.length > 0) {
-    countries = res.filter(obj => obj.continent === continent);
+    questions = res.filter(obj => obj.continent === continent);
   } else {
-    countries = res;
+    questions = res;
   }
 
   nextQuestion();
-  getAlternatives(countries[0].city);
-}
-
-function resetState() {
-  countries = [];
-  questionNum = 0;
-  correctAnswers = 0;
+  getAlternatives(questions[0].city);
 }
 
 function nextQuestion() {
@@ -32,17 +27,17 @@ function nextQuestion() {
     questionNum +
     1 +
     ". What's the capital in " +
-    countries[questionNum].country;
+    questions[questionNum].country;
   getAlternatives();
 }
 
 function getAlternatives() {
   let alternatives = [];
   while (alternatives.length < 3) {
-    let randomItem = Math.floor(Math.random() * countries.length);
+    let randomItem = Math.floor(Math.random() * questions.length);
 
-    if (alternatives.indexOf(countries[randomItem].city) === -1) {
-      alternatives.push(countries[randomItem].city);
+    if (alternatives.indexOf(questions[randomItem].city) === -1) {
+      alternatives.push(questions[randomItem].city);
     }
   }
 
@@ -50,13 +45,13 @@ function getAlternatives() {
   alternatives.splice(
     Math.floor(Math.random() * (alternatives.length + 1)),
     0,
-    countries[questionNum].city
+    questions[questionNum].city
   );
 
   let html = "";
   alternatives.forEach(alternative => {
     html +=
-      "<button class=\"btn btn-secondary w-50\" onclick=\"checkAnswer('" +
+      '<button class="btn btn-secondary w-50" onclick="checkAnswer(\'' +
       alternative +
       "')\">" +
       alternative +
@@ -67,12 +62,28 @@ function getAlternatives() {
 }
 
 function checkAnswer(answer) {
-  if (answer == countries[questionNum].city) {
+  answers.push(answer);
+
+  if (answer == questions[questionNum].city) {
     correctAnswers++;
   }
 
   document.getElementById("correct-answers").innerHTML =
-    "Correct answers: " + correctAnswers + " / " + countries.length;
+    "Correct answers: " + correctAnswers + " / " + questions.length;
   questionNum++;
-  nextQuestion();
+
+  if (answers.length < questions.length) {
+    nextQuestion();
+  } else {
+    resetState();
+  }
+}
+
+function resetState() {
+  questions = [];
+  answers = [];
+  questionNum = 0;
+  correctAnswers = 0;
+  document.getElementById("menu").className = "d-block";
+  document.getElementById("game-view").className = "d-none";
 }
