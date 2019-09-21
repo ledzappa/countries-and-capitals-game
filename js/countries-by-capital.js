@@ -729,7 +729,7 @@ const countriesByCapital = [
   },
   {
     country: "Sao Tome and Principe",
-    city: "S"
+    city: "Sao Tome"
   },
   {
     country: "Saudi Arabia",
