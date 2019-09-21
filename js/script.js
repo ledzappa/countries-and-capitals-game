@@ -1,4 +1,4 @@
-let countries, questionNum, correctAnswers, answers;
+let countries, questionNum, correctAnswers, answers, alternatives;
 
 let res = countriesByCapital.map(x =>
   Object.assign(x, {
@@ -32,11 +32,14 @@ function nextQuestion() {
 }
 
 function getAlternatives() {
-  let alternatives = [];
+  alternatives = [];
   while (alternatives.length < 3) {
     let randomItem = Math.floor(Math.random() * questions.length);
 
-    if (alternatives.indexOf(questions[randomItem].city) === -1) {
+    if (
+      alternatives.indexOf(questions[randomItem].city) === -1 &&
+      randomItem !== questionNum
+    ) {
       alternatives.push(questions[randomItem].city);
     }
   }
@@ -48,10 +51,16 @@ function getAlternatives() {
     questions[questionNum].city
   );
 
+  renderAlternatives();
+}
+
+function renderAlternatives(answer) {
   let html = "";
   alternatives.forEach(alternative => {
     html +=
-      '<button class="btn btn-secondary w-50" onclick="checkAnswer(\'' +
+      '<button id="' +
+      alternative +
+      '" class="btn btn-secondary w-50" onclick="checkAnswer(\'' +
       alternative +
       "')\">" +
       alternative +
@@ -64,8 +73,12 @@ function getAlternatives() {
 function checkAnswer(answer) {
   answers.push(answer);
 
+  
   if (answer == questions[questionNum].city) {
+    document.getElementById(answer).className = "btn btn-success w-50";
     correctAnswers++;
+  } else {
+    document.getElementById(answer).className = "btn btn-danger w-50";
   }
 
   document.getElementById("correct-answers").innerHTML =
@@ -73,7 +86,7 @@ function checkAnswer(answer) {
   questionNum++;
 
   if (answers.length < questions.length) {
-    nextQuestion();
+    setTimeout(() => nextQuestion(), 1000);
   } else {
     resetState();
   }
@@ -82,6 +95,7 @@ function checkAnswer(answer) {
 function resetState() {
   questions = [];
   answers = [];
+  alternatives = [];
   questionNum = 0;
   correctAnswers = 0;
   document.getElementById("menu").className = "d-block";
