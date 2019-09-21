@@ -1,3 +1,44 @@
+.container {
+  max-width: 600px;
+}
+
 .answer {
   background-color: #0f0 !important;
+}
+
+.no-click {
+  pointer-events: none;
+}
+
+.no-click.btn-secondary {
+  opacity: 0.5;
+}
+
+.btn {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+}
+
+
+.btn.back-to-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0;
+}
+
+#giphy img {
+  width: 100%;
+}
+
+h5 {
+  text-align: center;
+  font-size: 0.6rem;
+  margin-bottom: 0rem;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0rem;
 }

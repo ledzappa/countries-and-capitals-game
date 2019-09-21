@@ -1,3 +1,4 @@
+const r1 = new XMLHttpRequest();
 let countries, questionNum, correctAnswers, answers, alternatives;
 
 let res = countriesByCapital.map(x =>
@@ -18,17 +19,16 @@ function start() {
     questions = res;
   }
 
+  questions = shuffleArray(questions);
+
   nextQuestion();
   getAlternatives(questions[0].city);
 }
 
 function nextQuestion() {
-  document.getElementById("question").innerHTML =
-    questionNum +
-    1 +
-    ". What's the capital in " +
-    questions[questionNum].country;
+  document.getElementById("heading").innerHTML = questions[questionNum].country;
   getAlternatives();
+  getGiphy(questions[questionNum].country);
 }
 
 function getAlternatives() {
@@ -54,31 +54,38 @@ function getAlternatives() {
   renderAlternatives();
 }
 
-function renderAlternatives(answer) {
+function renderAlternatives(extraClass) {
   let html = "";
-  alternatives.forEach(alternative => {
+  alternatives.forEach((alternative, index) => {
     html +=
-      '<button id="' +
-      alternative +
-      '" class="btn btn-secondary w-50" onclick="checkAnswer(\'' +
-      alternative +
+      '<div class="col-6' +
+      (index === 0 || index === 2 ? " pr-1" : " pl-1") +
+      '"><button id="alternative-' +
+      index +
+      '" class="btn btn-secondary' +
+      (extraClass ? " " + extraClass : "") +
+      '" onclick="checkAnswer(\'' +
+      index +
       "')\">" +
       alternative +
-      "</button>";
+      "</button></div>";
   });
 
   document.getElementById("alternatives").innerHTML = html;
 }
 
 function checkAnswer(answer) {
-  answers.push(answer);
+  answers.push(alternatives[answer]);
 
-  
-  if (answer == questions[questionNum].city) {
-    document.getElementById(answer).className = "btn btn-success w-50";
+  renderAlternatives("no-click");
+
+  if (alternatives[answer] == questions[questionNum].city) {
+    document.getElementById("alternative-" + answer).className =
+      "btn btn-success no-click";
     correctAnswers++;
   } else {
-    document.getElementById(answer).className = "btn btn-danger w-50";
+    document.getElementById("alternative-" + answer).className =
+      "btn btn-danger no-click";
   }
 
   document.getElementById("correct-answers").innerHTML =
@@ -86,10 +93,54 @@ function checkAnswer(answer) {
   questionNum++;
 
   if (answers.length < questions.length) {
-    setTimeout(() => nextQuestion(), 1000);
+    setTimeout(() => nextQuestion(), 500);
   } else {
     resetState();
   }
+}
+
+function getGiphy(country) {
+  const url =
+    "https://api.giphy.com/v1/gifs/search?api_key=In5JKoBFt0IN0Ylr1vDbtmPW1nIDNnbk&q=" +
+    country +
+    "&limit=5&offset=0&lang=en";
+  r1.open("GET", url);
+  r1.send();
+}
+
+function getRandomGiphyImage() {
+  let gif =
+    "https://media.giphy.com/media/" +
+    giphyResponse.data[Math.floor(Math.random() * giphyResponse.data.length)]
+      .id +
+    "/giphy.gif";
+  document.getElementById("giphy").innerHTML = "<img src='" + gif + "'>";
+}
+
+function backToMenu() {
+  if (confirm("Are you sure?")) {
+    resetState();
+  }
+}
+
+function shuffleArray(array) {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 
 function resetState() {
@@ -101,3 +152,10 @@ function resetState() {
   document.getElementById("menu").className = "d-block";
   document.getElementById("game-view").className = "d-none";
 }
+
+r1.onreadystatechange = e => {
+  if (e.currentTarget.readyState == 4) {
+    giphyResponse = JSON.parse(r1.responseText);
+    getRandomGiphyImage();
+  }
+};

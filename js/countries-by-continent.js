@@ -28,10 +28,6 @@ const countriesByContinent = [
     continent: "North America"
   },
   {
-    country: "Antarctica",
-    continent: "Antarctica"
-  },
-  {
     country: "Antigua and Barbuda",
     continent: "North America"
   },
@@ -112,16 +108,8 @@ const countriesByContinent = [
     continent: "Africa"
   },
   {
-    country: "Bouvet Island",
-    continent: "Antarctica"
-  },
-  {
     country: "Brazil",
     continent: "South America"
-  },
-  {
-    country: "British Indian Ocean Territory",
-    continent: "Africa"
   },
   {
     country: "Brunei",
@@ -253,7 +241,7 @@ const countriesByContinent = [
   },
   {
     country: "England",
-    continent: null
+    continent: "Europe"
   },
   {
     country: "Equatorial Guinea",
@@ -368,10 +356,6 @@ const countriesByContinent = [
     continent: "North America"
   },
   {
-    country: "Heard Island and McDonald Islands",
-    continent: "Antarctica"
-  },
-  {
     country: "Holy See (Vatican City State)",
     continent: "Europe"
   },
@@ -437,7 +421,7 @@ const countriesByContinent = [
   },
   {
     country: "Kazakhstan",
-    continent: null
+    continent: "Asia"
   },
   {
     country: "Kenya",
@@ -549,7 +533,7 @@ const countriesByContinent = [
   },
   {
     country: "Micronesia, Federated States of",
-    continent: null
+    continent: "Oceania"
   },
   {
     country: "Moldova",
@@ -633,7 +617,7 @@ const countriesByContinent = [
   },
   {
     country: "Northern Ireland",
-    continent: null
+    continent: "Europe"
   },
   {
     country: "Northern Mariana Islands",
@@ -753,7 +737,7 @@ const countriesByContinent = [
   },
   {
     country: "Scotland",
-    continent: null
+    continent: "Europe"
   },
   {
     country: "Senegal",
@@ -808,8 +792,8 @@ const countriesByContinent = [
     continent: "Europe"
   },
   {
-    country: "SriLanka",
-    continent: null
+    country: "Sri Lanka",
+    continent: "Asia"
   },
   {
     country: "Sudan",
@@ -853,7 +837,7 @@ const countriesByContinent = [
   },
   {
     country: "The Democratic Republic of Congo",
-    continent: null
+    continent: "Africa"
   },
   {
     country: "Togo",
@@ -912,10 +896,6 @@ const countriesByContinent = [
     continent: "North America"
   },
   {
-    country: "United States Minor Outlying Islands",
-    continent: "Oceania"
-  },
-  {
     country: "Uruguay",
     continent: "South America"
   },
@@ -937,15 +917,15 @@ const countriesByContinent = [
   },
   {
     country: "Virgin Islands, British",
-    continent: null
+    continent: "Europe"
   },
   {
     country: "Virgin Islands, U.S.",
-    continent: null
+    continent: "North America"
   },
   {
     country: "Wales",
-    continent: null
+    continent: "Europe"
   },
   {
     country: "Wallis and Futuna",
@@ -971,4 +951,4 @@ const countriesByContinent = [
     country: "Zimbabwe",
     continent: "Africa"
   }
-]
+];
