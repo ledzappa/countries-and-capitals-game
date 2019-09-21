@@ -28,10 +28,6 @@ const countriesByCapital = [
     city: "The Valley"
   },
   {
-    country: "Antarctica",
-    city: null
-  },
-  {
     country: "Antigua and Barbuda",
     city: "Saint John's"
   },
@@ -112,16 +108,8 @@ const countriesByCapital = [
     city: "Gaborone"
   },
   {
-    country: "Bouvet Island",
-    city: null
-  },
-  {
     country: "Brazil",
     city: "Brasília"
-  },
-  {
-    country: "British Indian Ocean Territory",
-    city: null
   },
   {
     country: "Brunei",
@@ -301,7 +289,7 @@ const countriesByCapital = [
   },
   {
     country: "French Southern territories",
-    city: null
+    city: "Saint-Pierre"
   },
   {
     country: "Gabon",
@@ -366,10 +354,6 @@ const countriesByCapital = [
   {
     country: "Haiti",
     city: "Port-au-Prince"
-  },
-  {
-    country: "Heard Island and McDonald Islands",
-    city: null
   },
   {
     country: "Holy See (Vatican City State)",
@@ -793,7 +777,7 @@ const countriesByCapital = [
   },
   {
     country: "South Georgia and the South Sandwich Islands",
-    city: null
+    city: "King Edward Point"
   },
   {
     country: "South Korea",
@@ -808,8 +792,8 @@ const countriesByCapital = [
     city: "Madrid"
   },
   {
-    country: "SriLanka",
-    city: null
+    country: "Sri Lanka",
+    city: "Sri Jayawardenepura Kotte"
   },
   {
     country: "Sudan",
@@ -853,7 +837,7 @@ const countriesByCapital = [
   },
   {
     country: "The Democratic Republic of Congo",
-    city: null
+    city: "Kinshasa"
   },
   {
     country: "Togo",
@@ -910,10 +894,6 @@ const countriesByCapital = [
   {
     country: "United States",
     city: "Washington"
-  },
-  {
-    country: "United States Minor Outlying Islands",
-    city: null
   },
   {
     country: "Uruguay",

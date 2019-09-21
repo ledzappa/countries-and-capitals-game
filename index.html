@@ -9,12 +9,13 @@
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <div class="container">
+        <div class="container pt-2">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2>Hello world!</h2>
+                    <h5>What's the capital in:</h5>
+                    <h2 id="heading">Hello world!</h2>
                     <div id="menu">
-                        <select class="form-control" id="continent-select">
+                        <select class="form-control mb-3" id="continent-select">
                             <option value="">Whole World</option>
                             <option value="North America">North America</option>
                             <option value="Europe">Europe</option>
@@ -25,10 +26,12 @@
                         <button class="btn btn-primary" onclick="start()">Start game</button>
                     </div>
             
-                    <div id="game-view">
+                    <div class="d-none" id="game-view">
                         <div class="pb-2" id="question"></div>
-                        <div class="pb-2" id="alternatives"></div>
+                        <div class="row pb-2" id="alternatives"></div>
+                        <div id="giphy"></div>
                         <div id="correct-answers"></div>
+                        <button class="btn btn-primary back-to-menu" onclick="backToMenu()">Back to menu</button>
                     </div>
 
                 </div>
