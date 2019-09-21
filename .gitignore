@@ -1,1 +1,5 @@
-node_modules
+deploy.sh
+package-lock.json
+package.json
+README.md
+_config.yml
