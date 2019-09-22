@@ -1,5 +1,6 @@
 body {
-  background-color: #444443;
+  font-family: 'Open Sans';
+  background-color: #444444;
   color: #fff;
 }
 
@@ -32,17 +33,46 @@ body {
   margin-bottom: 0;
 }
 
+.btn-menu {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 0.2rem;
+  text-shadow: #000 1px 1px 1px;
+  letter-spacing: 0.2rem;
+}
+
+.score-wrapper {
+  width: 14rem;
+  display: inline-block;
+  background-color: blueviolet;
+  height: 14rem;
+  border-radius: 7rem;
+  padding-top: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0.5rem 0.5rem;
+}
+
+#score {
+  font-size: 4rem;
+  text-shadow: #000 2px 2px 2px;
+}
+
 #giphy img {
   width: 100%;
 }
 
+#score-view {
+  text-align: center;
+}
+
 h5 {
   text-align: center;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   margin-bottom: 0rem;
 }
 
 h2 {
   text-align: center;
   margin-top: 0rem;
+  text-shadow: #000 2px 2px 2px;
+  color: aquamarine;
 }

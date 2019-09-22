@@ -288,10 +288,6 @@ const countriesByContinent = [
     continent: "Oceania"
   },
   {
-    country: "French Southern territories",
-    continent: "Antarctica"
-  },
-  {
     country: "Gabon",
     continent: "Africa"
   },
@@ -774,10 +770,6 @@ const countriesByContinent = [
   {
     country: "South Africa",
     continent: "Africa"
-  },
-  {
-    country: "South Georgia and the South Sandwich Islands",
-    continent: "Antarctica"
   },
   {
     country: "South Korea",
