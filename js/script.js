@@ -1,5 +1,16 @@
 const r1 = new XMLHttpRequest();
-let countries, questionNum, correctAnswers, answers, alternatives;
+let countries, continents, questionNum, correctAnswers, answers, alternatives;
+
+const elScoreView = document.getElementById("score-view");
+const elGameView = document.getElementById("game-view");
+const elMenu = document.getElementById("menu");
+
+continents = countriesByContinent.reduce((output, current) => {
+  if (output.indexOf(current.continent) === -1) {
+    output.push(current.continent);
+  }
+  return output;
+}, []);
 
 let res = countriesByCapital.map(x =>
   Object.assign(x, {
@@ -7,11 +18,10 @@ let res = countriesByCapital.map(x =>
   })
 );
 
-function start() {
+function start(continent) {
   resetState();
-  document.getElementById("menu").className = "d-none";
-  document.getElementById("game-view").className = "d-block";
-  let continent = document.getElementById("continent-select").value;
+  elMenu.className = "d-none";
+  elGameView.className = "d-block";
 
   if (continent.length > 0) {
     questions = res.filter(obj => obj.continent === continent);
@@ -26,6 +36,8 @@ function start() {
 }
 
 function nextQuestion() {
+  document.getElementById("question-number").innerHTML =
+    questionNum + 1 + "/" + questions.length;
   document.getElementById("heading").innerHTML = questions[questionNum].country;
   getAlternatives();
   getGiphy(questions[questionNum].country);
@@ -52,6 +64,20 @@ function getAlternatives() {
   );
 
   renderAlternatives();
+}
+
+function renderContinents() {
+  const el = document.getElementById("continents");
+  let html = "";
+  continents.forEach(continent => {
+    html +=
+      "<button class='btn btn-success btn-menu' onclick='start(\"" +
+      continent +
+      "\")'>" +
+      continent +
+      "</button>";
+  });
+  el.innerHTML = html;
 }
 
 function renderAlternatives(extraClass) {
@@ -81,21 +107,19 @@ function checkAnswer(answer) {
 
   if (alternatives[answer] == questions[questionNum].city) {
     document.getElementById("alternative-" + answer).className =
-      "btn btn-success no-click";
+      "btn btn-success animated pulse fast no-click";
     correctAnswers++;
   } else {
     document.getElementById("alternative-" + answer).className =
-      "btn btn-danger no-click";
+      "btn btn-danger animated shake fast no-click";
   }
 
-  document.getElementById("correct-answers").innerHTML =
-    "Correct answers: " + correctAnswers + " / " + questions.length;
   questionNum++;
 
   if (answers.length < questions.length) {
-    setTimeout(() => nextQuestion(), 500);
+    setTimeout(() => nextQuestion(), 1000);
   } else {
-    resetState();
+    showFinalScore();
   }
 }
 
@@ -143,14 +167,22 @@ function shuffleArray(array) {
   return array;
 }
 
+function showFinalScore() {
+  elGameView.className = "d-none";
+  document.getElementById("score").innerHTML =
+    correctAnswers + " / " + questions.length;
+  elScoreView.className = "d-block animated fadeIn";
+}
+
 function resetState() {
   questions = [];
   answers = [];
   alternatives = [];
   questionNum = 0;
   correctAnswers = 0;
-  document.getElementById("menu").className = "d-block";
-  document.getElementById("game-view").className = "d-none";
+  elMenu.className = "d-block";
+  elGameView.className = "d-none";
+  elScoreView.className = "d-none";
 }
 
 r1.onreadystatechange = e => {
@@ -159,3 +191,5 @@ r1.onreadystatechange = e => {
     getRandomGiphyImage();
   }
 };
+
+renderContinents();

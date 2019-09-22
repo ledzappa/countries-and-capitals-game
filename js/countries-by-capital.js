@@ -288,10 +288,6 @@ const countriesByCapital = [
     city: "Papeete"
   },
   {
-    country: "French Southern territories",
-    city: "Saint-Pierre"
-  },
-  {
     country: "Gabon",
     city: "Libreville"
   },
@@ -774,10 +770,6 @@ const countriesByCapital = [
   {
     country: "South Africa",
     city: "Pretoria"
-  },
-  {
-    country: "South Georgia and the South Sandwich Islands",
-    city: "King Edward Point"
   },
   {
     country: "South Korea",

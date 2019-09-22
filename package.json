@@ -9,6 +9,7 @@
   "author": "Mikael Juntti",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^3.7.2",
     "bootstrap": "^4.3.1"
   }
 }

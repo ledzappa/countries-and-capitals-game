@@ -5,28 +5,27 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Oswald|Open+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css">
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
         <div class="container pt-2">
             <div class="row">
                 <div class="col-sm-12">
-                    <h5>What's the capital in:</h5>
-                    <h2 id="heading">Hello world!</h2>
                     <div id="menu">
-                        <select class="form-control mb-3" id="continent-select">
-                            <option value="">Whole World</option>
-                            <option value="North America">North America</option>
-                            <option value="Europe">Europe</option>
-                            <option value="South America">South America</option>
-                            <option value="Asia">Asia</option>
-                            <option value="Africa">Africa</option>
-                        </select>
-                        <button class="btn btn-primary" onclick="start()">Start game</button>
+                        <h2>Hello world!</h2>
+                        <p>Choose a continent to start the game!</p>
+                        <div id="continents">
+
+                        </div>
                     </div>
             
                     <div class="d-none" id="game-view">
+                        <h5 id="question-number"></h5>
+                        <h5>What's the capital in:</h5>
+                        <h2 class="mt-2" id="heading">Hello world!</h2>
                         <div class="pb-2" id="question"></div>
                         <div class="row pb-2" id="alternatives"></div>
                         <div id="giphy"></div>
@@ -34,6 +33,13 @@
                         <button class="btn btn-primary back-to-menu" onclick="backToMenu()">Back to menu</button>
                     </div>
 
+                    <div class="d-none" id="score-view">
+                        <div class="score-wrapper mt-5"">
+                            <h4>Your score:</h4>
+                            <div id="score"></div>
+                        </div>
+                        <button class="btn btn-primary back-to-menu" onclick="resetState()">Back to menu</button>
+                    </div>
                 </div>
             </div>
         </div>
