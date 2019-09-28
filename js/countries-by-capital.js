@@ -77,7 +77,7 @@ const countriesByCapital = [
   },
   {
     country: "Belgium",
-    city: "Bruxelles [Brussel]"
+    city: "Brussels"
   },
   {
     country: "Belize",
@@ -273,7 +273,7 @@ const countriesByCapital = [
   },
   {
     country: "Finland",
-    city: "Helsinki [Helsingfors]"
+    city: "Helsinki"
   },
   {
     country: "France",
@@ -469,7 +469,7 @@ const countriesByCapital = [
   },
   {
     country: "Luxembourg",
-    city: "Luxembourg [Luxemburg/L"
+    city: "Luxembourg"
   },
   {
     country: "Macao",
@@ -557,7 +557,7 @@ const countriesByCapital = [
   },
   {
     country: "Myanmar",
-    city: "Rangoon (Yangon)"
+    city: "Rangoon"
   },
   {
     country: "Namibia",
