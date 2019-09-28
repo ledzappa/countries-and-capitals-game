@@ -105,13 +105,15 @@ function checkAnswer(answer) {
 
   renderAlternatives("no-click");
 
-  if (alternatives[answer] == questions[questionNum].city) {
-    document.getElementById("alternative-" + answer).className =
-      "btn btn-success animated pulse fast no-click";
-    correctAnswers++;
-  } else {
+  document.getElementById(
+    "alternative-" + alternatives.indexOf(questions[questionNum].city)
+  ).className = "btn btn-success animated pulse fast no-click";
+
+  if (alternatives[answer] !== questions[questionNum].city) {
     document.getElementById("alternative-" + answer).className =
       "btn btn-danger animated shake fast no-click";
+  } else {
+    correctAnswers++;
   }
 
   questionNum++;
