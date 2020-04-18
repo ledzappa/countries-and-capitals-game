@@ -369,7 +369,7 @@ const countriesByCapital = [
   },
   {
     country: "Iceland",
-    city: "Reykjav"
+    city: "Reykjavik"
   },
   {
     country: "India",
@@ -397,7 +397,7 @@ const countriesByCapital = [
   },
   {
     country: "Italy",
-    city: "Roma"
+    city: "Rome"
   },
   {
     country: "Ivory Coast",
@@ -417,7 +417,7 @@ const countriesByCapital = [
   },
   {
     country: "Kazakhstan",
-    city: "Astana"
+    city: "Nur-Sultan"
   },
   {
     country: "Kenya",
@@ -456,7 +456,7 @@ const countriesByCapital = [
     city: "Monrovia"
   },
   {
-    country: "Libyan Arab Jamahiriya",
+    country: "Libya",
     city: "Tripoli"
   },
   {
